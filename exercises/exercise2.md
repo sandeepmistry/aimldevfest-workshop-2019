@@ -1,52 +1,48 @@
 # Exercise 2: Assemble the Hardware
 
-Use the parts in the kit and assemble the hardware.
+There's no wiring for this project. 
 
-## Wiring
+1. Remove the Arduino Nano 33 Sense board from the box
+1. Hold the Arduino with the USB connector toward the right
+1. Plug the Arduino into the top of the mini solderless breadboard
+1. You should see 4 rows of holes below the board
+1. Take the button and gently insert it into the breadboard
+1. The left side of the button should be in the ground pin, which is denoted by a white mark
+1. The right side of the button should be in pin D3
+1. Unfortuantely the pin labels are on the bottom of the board, so match your setup with the picture above.
 
-![Fritzing Diagram](../images/wiring_bb.png)
-
-Suggested wiring instructions:
-
-1. Place the solderless breadboard with A1 on the bottom left.
-1. Plug the Arduino MKR WiFi 1010 into the breadboard with the 5V pin in B63.
-1. Plug the LED into E44 and E45. Make sure the longer leg is in E45.
-   * Run a 330 &#937; resistor (orange, orange, brown, gold) from the negative rail to D44.
-   * Run a blue wire from A45 to A50 which is pin 6 on the Arduino.
-1. Plug the CdS Photoresistor into G38 and G41.
-   * Use a red wire from the positive rail to F41.
-   * Put a 10,000 &#937; resistor (brown, black, orange, gold) from the negative rail to F38.
-   * Use a purple wire from I38 to J62 which is pin A0 on the Arduino.
-1. Plug the DHT-22 into J32.
-   * Use a red wire from the positive rail to F32.
-   * Put a 10,000 &#937; resistor (brown, black, orange, gold) from the positive rail to F33.
-   * Place a black wire from the negative rail to F35.
-   * Run a green wire from G33 to G53 which is pin 2 on the Arduino.
-1. Place a button into E25, E27, F25, and F27 on the breadboard.
-   * Use a red wire from the positive rail to A25.
-   * Use a yellow wire from G27 to J50 which is pin 5 on the Arduino.
-1. Pick up the Servo motor.
-   * Plug a black wire into the brown wire on the servo and connect it to the negative rail.
-   * Plug a red wire into the red wire on the servo and connect it to A63 which is the 5V pin on the Arduino.
-   * Plug an orange wire into the orange wire on the servo and connect it to A51 which is pin 7 on the Arduino.
-   * Note that only the servo is powered with 5 volts. Everything else uses 3.3 volts.
-1. Run a black wire from A60 to the negative rail.
-1. Run a red wire from the Arduino Vcc pin, A61, to the positive rail. The Vcc pin supplies 3.3 volts.
-
+![Picture of assembled hardware](../images/assembled-hardware.png)
 
 ## Hardware Test
 
+1. Plug the micro USB cable into the board and your computer
 1. Open arduino/HardwareTest/HardwareTest.ino in the Arduino IDE
-1. Choose the board _Tools -> Board -> Arduino MKR WiFi 1010_
-1. Choose the port _Tools -> Port -> COM 3 (Arduino MKR WiFI 1010)_ Note that the actual port may be different on your computer
+1. Choose the board _Tools -> Board -> Arduino Nano 33 BLE_
+1. Choose the port _Tools -> Port -> COM5 (Arduino Nano 33 BLE)_ Note that the actual port may be different on your computer
 1. Upload the code to the board _Sketch -> Upload_
 1. The LED should be a solid color
 1. Open the serial monitor _Tools -> Serial Monitor_
+1. **TODO FIX NEXT 2 STEPS**
 1. The LED should start blinking and you should see temperature, humidity, CdS, button, & servo data in the serial console
 1. To stop the program press the RST button on the board.
     * To restart the test, close the _Serial Monitor_ dialog and open it again.
 
 ![Arduino serial monitor with hardware test results](../images/hardware-test.png)
+
+## LSM9DS1 Examples (Optional)
+
+You can try the example sketches that came with the LSM9DS1 library.
+
+1. Open the Simple Accelerometer sketch using _File -> Examples -> Arduino_LSM9DS1 -> SimpleAccelerometer_
+1. Upload the sketch to the board using the _Sketch -> Upload_ menu or the right arrow button from the tool bar.
+1. Open the Serial Monitor _Tools -> Serial Monitor_ to view the text output
+1. Open the Serial Plotter _Tools -> Serial Plotter_ to view the output on a graph
+
+![Arduino LSM9DS1 Examples](../images/lsm9ds1-examples.png)
+
+![Arduino Serial Plotter Output with Accelerometer Data](../images/accelerometer-example-serial-plotter.png)
+
+
 
 ## Network Test
 
