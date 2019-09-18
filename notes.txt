@@ -48,7 +48,10 @@ The Technology
     TensorFlow light - run model on tiny hardware
     Arduino - nice approachable hardware programming environment with excellent libraries
     Google Colab - Python + Jupyter Notebooks
-
+    
+    Something about nRF52
+    WTF is an IMU
+   
 Recording data
 
     What we're recording
