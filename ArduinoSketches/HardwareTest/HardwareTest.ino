@@ -31,8 +31,11 @@ const int ledPin =  LED_BUILTIN;      // the number of the LED pin
 
 // variables will change:
 int buttonState = 0;         // variable for reading the pushbutton status
+int previousButtonState = 1;
 
 void setup() {
+
+  Serial.begin(9600);
 
   if (!IMU.begin()) {
     Serial.println("Failed to initialize IMU!");
@@ -55,8 +58,16 @@ void loop() {
   if (buttonState == LOW) {
     // turn LED on:
     digitalWrite(ledPin, HIGH);
+    if (buttonState != previousButtonState) {
+      Serial.println("LED is ON");      
+    }
   } else {
     // turn LED off:
     digitalWrite(ledPin, LOW);
+    if (buttonState != previousButtonState) {
+      Serial.println("LED is OFF");      
+    }
   }
+
+  previousButtonState = buttonState;
 }
