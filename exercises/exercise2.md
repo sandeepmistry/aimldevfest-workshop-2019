@@ -42,16 +42,4 @@ You can try the example sketches that came with the LSM9DS1 library.
 
 ![Arduino Serial Plotter Output with Accelerometer Data](../images/accelerometer-example-serial-plotter.png)
 
-
-
-## Network Test
-
-1. Open arduino/NetworkTest/NetworkTest.ino in the Arduino IDE
-1. Edit the ssid and password on the arduino_secrets.h tab
-1. Upload the code to the board _Tools -> Upload_
-1. Open the serial monitor _Tools -> Serial Monitor_
-1. Look for the message "IT WORKS!"
-
-![Arduino serial monitor with network test results](../images/network-test.png)
-
-Next [Exercise 3: Sending data using MQTT](exercise3.md)
+Next [Exercise 3: Visualize IMU Data](exercise3.md)
