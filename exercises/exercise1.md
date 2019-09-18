@@ -12,42 +12,21 @@ Use the Arduino Boards Manager to install the Arduino SAMD Board definitions. Op
 
 ![Arduino Boards Manager](../images/BoardManager-Menu.png)
 
-Search for "1010" and install the Arduino SAMD Boards (32-bit ARM Cortex-M0+) definitions.
+Search for "Nano 33 BLE" and install the Arduino nRF528x Boards (MBed OS) definitions.
 
-![Arduino SAMD Board Definitions](../images/BoardsManager.png)
+![Arduino nRF528x Board Definitions](../images/BoardsManager.png)
         
 ### Arduino Libraries        
 Install the following Arduino Libraries using the Library manager. 
 
-* WiFiNINA library (search for "NINA")
-* Arduino MQTT Client library (search for "ArduinoMQTTClient")
-* Arduino BearSSL library (search for "ECCX")
-* Arduino ECCX08  library (search for "ECCX")
-* DHT sensor library by Adafruit (search for "DHT")
-* Adafruit Unified Sensor library (search for "adafruit abstraction")
+* Arduino LSM9DS1 library (search for "Arduino_LSM9DS1")
 
-Open the library manager using the menu _Sketch -> Include Libraries -> Manage Libraries_
+Open the library manager using the menu _Tools ->  Manage Libraries_
 
 ![Arduino Library Manager Menu](../images/ManageLibraries.png)
 
-Search for "NINA" and install the WiFiNINA library.
+Search for "Arduino_LSM9DS1" and install the Arduino LSM9DS1 accelerometer, magnetometer, and gyroscope library.
 
-![Arduino Library Manager WiFiNINA](../images/library-wifinina.png)
-
-Search for "ArduinoMQTTClient" and install the Arduino MQTT Client library.
-
-![Arduino Library Manager MQTT](../images/library-arduinomqttclient.png)
-
-Search for "ECCX" and install the ArduinoBearSSL library and the ArduinoECCX08 library.
-
-![Arduino Library Manager Search ECCX](../images/library-eccx.png)
-
-Search for "DHT" and install the DHT sensor library by Adafruit.
-
-![Arduino Library Manager Adafruit DHT](../images/library-dht.png)
-
-Search for "adafruit abstraction" and install the Adafruit Unified Sensor library.
-
-![Arduino Library Manager Adafruit Unified Sensor](../images/library-AdafruitUnifiedSensor.png)
+![Arduino LSM9DS1 library](../images/library-arduinolsm9ds1.png)
 
 Next [Exercise 2: Assemble the Hardware](exercise2.md)
