@@ -22,6 +22,9 @@
   http://www.arduino.cc/en/Tutorial/Button
 */
 
+// Import the IMU library to make sure the libraries setup correctly
+#include <Arduino_LSM9DS1.h>
+
 // constants won't change. They're used here to set pin numbers:
 const int buttonPin = 3;     // the number of the pushbutton pin
 const int ledPin =  LED_BUILTIN;      // the number of the LED pin
@@ -30,6 +33,13 @@ const int ledPin =  LED_BUILTIN;      // the number of the LED pin
 int buttonState = 0;         // variable for reading the pushbutton status
 
 void setup() {
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+
+  
   // initialize the LED pin as an output:
   pinMode(ledPin, OUTPUT);
   // initialize the pushbutton pin as an input:
