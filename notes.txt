@@ -1,0 +1,117 @@
+## These are the notes for the Arduino ML workshop
+## Ideally we'll use this as a guide for speaking and to make the slides
+## 
+
+Welcome
+
+Make sure people are in the right workshop
+
+Get the machines setup ASAP
+   Arduino IDE + Nano 33 definitions + IMU library
+   Link to instructions for Linux users. If you're a linux user, you better be able to follow instructions. I'm not your linux admin.
+   What about people with a locked down Windows 7 machine?
+   What about people with Windwows 10 and no admin?
+
+People can use the Arduino Cloud IDE if they want.
+
+Need to start downloading and installing ASAP beacuse the Nano 33 definitions can take a long time (and not just the slow network part.)
+
+----
+
+TODO title here
+
+Introduce ourselves
+
+Overview of what we're doing today
+
+    ML-Powered Gesture-based emoji keyboard
+
+    Sandeep's inspiration
+        Show video?
+
+    Why ML on a device - borrow explanation from the TinyML book
+    TODO link
+
+Hardware
+
+    Provided by Arduino! Thank you.
+
+    Overview of the Hardware
+        ARM Cortex ???
+        IMU
+        Good for ML because ... (insert cool reasons here)
+
+The Technology
+
+    Accelerometer & Gyro - record data
+    TensorFlow - train model
+    TensorFlow light - run model on tiny hardware
+    Arduino - nice approachable hardware programming environment with excellent libraries
+    Google Colab - Python + Jupyter Notebooks
+
+Recording data
+
+    What we're recording
+    How we do it
+    How many times / How much data
+    Why 119?
+    
+Visualize the data
+
+    Use Arduino IDE to graph
+
+Copy and paste gesture output to CSV file
+
+    Include the headers ax, ay, az, gx, gy, gz
+    name it punch.csv
+    (or don't and update the code)
+
+Repeat for the flex Gesture
+    name the file flex.csv
+
+Training the model
+    We don't do this on the MCU, we need a real computer
+    We use TensorFlow and Python
+    Jupyter Notebooks help us organize stuff
+        Convenient way to write and share code with an explanation
+        Can run Jupyter locally
+        Can run on Databricks, Microsoft Azure etc.
+        Today we're running on Google Colab. It's a great environment to experiement with ML
+
+    Open the Notebook (from public github)
+    Note / Warning about cookies and how to work around
+
+    What is machine learning 
+        (Should have we talked about this earlier? )
+        More than just if statements (or not)
+        What type of ML are we doing today
+        Categorization
+        Fancy Pattern matching
+        (Sandeep: can you help explain this better here.)
+
+    ??? Do we run the whole training part or can we break up into phases
+
+    Now we have a TF model
+        WTF is a model
+        What does it Include
+        How does it work? High level, conceptually
+
+    But the Arduino can't handle the TF model. We convert this to TF lite (light?)
+
+    Even though it's TF lite, we can't easily add it to Arduino
+        Convert into an array so we can include in the Arduino header file
+    
+    Matching code
+
+    Run it
+
+    Bluetooth keyboard
+
+    Run it
+
+    Go back, add more gesture. Repeat the process.
+
+
+
+
+
