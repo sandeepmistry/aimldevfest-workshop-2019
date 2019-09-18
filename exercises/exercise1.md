@@ -25,8 +25,16 @@ Open the library manager using the menu _Tools ->  Manage Libraries_
 
 ![Arduino Library Manager Menu](../images/ManageLibraries.png)
 
-Search for "Arduino_LSM9DS1" and install the Arduino LSM9DS1 accelerometer, magnetometer, and gyroscope library.
+Search for "Arduino_LSM9DS1". Click the row and press the +Install+ button to install the Arduino LSM9DS1 accelerometer, magnetometer, and gyroscope library. 
 
 ![Arduino LSM9DS1 library](../images/library-arduinolsm9ds1.png)
+
+The TensorFlow Lite library isn't available in the Arduino Library Manager yet.
+
+1. Download the zip file [tensorflow_lite.zip](https://storage.googleapis.com/tensorflow-nightly/github/tensorflow/tensorflow/lite/experimental/micro/tools/make/gen/arduino_x86_64/prj/tensorflow_lite.zip)
+2. Import downloaded library into the IDE using _Sketch -> Include Library -> Add .ZIP library ..._
+
+![Importing Tensor Flow Lite Library from ZIP file](../images/ImportZipLibrary.png)
+
 
 Next [Exercise 2: Assemble the Hardware](exercise2.md)
