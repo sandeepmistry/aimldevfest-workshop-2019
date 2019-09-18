@@ -42,4 +42,4 @@ You can try the example sketches that came with the LSM9DS1 library.
 
 ![Arduino Serial Plotter Output with Accelerometer Data](../images/accelerometer-example-serial-plotter.png)
 
-Next [Exercise 3: Visualize IMU Data](exercise3.md)
+Next [Exercise 3: Visualize the IMU Data](exercise3.md)
