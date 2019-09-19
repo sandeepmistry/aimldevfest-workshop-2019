@@ -36,5 +36,7 @@ The TensorFlow Lite library isn't available in the Arduino Library Manager yet.
 
 ![Importing Tensor Flow Lite Library from ZIP file](../images/ImportZipLibrary.png)
 
+++ TODO link to setup instructions for Linix users and permissions ++
+
 
 Next [Exercise 2: Assemble the Hardware](exercise2.md)
