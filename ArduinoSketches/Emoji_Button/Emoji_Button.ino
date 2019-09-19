@@ -2,7 +2,7 @@
 #include <USBKeyboard.h>
 
 // Select an OS:
-#define MACOS // You'll need to enable and select the unicode keyboard: System Preferences -> Input Sources -> + -> Others -> Unicode Hex Input
+//#define MACOS // You'll need to enable and select the unicode keyboard: System Preferences -> Input Sources -> + -> Others -> Unicode Hex Input
 //#define WINDOWS
 //#define LINUX
 
