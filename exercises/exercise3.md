@@ -1,5 +1,7 @@
 # Exercise 3: Visualize the IMU Data
 
+++ TODO instructions to CLONE or download the REPO from Github ++
+
 1. Download and upload the https://github.com/sandeepmistry/aimldevfest-workshop-2019/blob/master/ArduinoSketches/IMU_Capture/IMU_Capture.ino sketch to the board
 1. Open the Serial Monitor: `Tools -> Serial Monitor`
 1. Press the button, IMU data will be captured and outputted for 1 second
