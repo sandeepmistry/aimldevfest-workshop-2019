@@ -32,6 +32,11 @@ Overview of what we're doing today
     Why ML on a device - borrow explanation from the TinyML book
     TODO link
 
+
+What is ML?
+   
+   I know this is a AI ML dev fest, so many of you are familiar with ML, but it was also a low cost event where you can learn stuff and you're in a workshop. So what is ML, we're going us a machine to find patterns in data. Based on these patterns, we'll have a trained model that should be able to recognize (or match) the pattern when it happens again. TODO - add some better info here
+
 Hardware
 
     Provided by Arduino! Thank you.
@@ -40,6 +45,11 @@ Hardware
         ARM Cortex ???
         IMU
         Good for ML because ... (insert cool reasons here)
+                
+        "The nRF52840 is fully multiprotocol capable with full protocol concurrency. It has protocol support for Bluetooth 5, Bluetooth mesh, Thread, Zigbee, 802.15.4, ANT and 2.4 GHz proprietary stacks. The nRF52840 is built around the 32-bit ARM® Cortex™-M4 CPU with floating point unit running at 64 MHz."
+https://www.nordicsemi.com/?sc_itemid=%7B2DC10BA5-A76E-40F8-836E-E2FC65803A71%7D
+
+         More info about the other sensors on the board that we're not using
 
 The Technology
 
@@ -113,6 +123,15 @@ Training the model
     Run it
 
     Go back, add more gesture. Repeat the process.
+    
+    
+Other stuff to (possibly) add in
+   What are the limitations of this demo?
+   How can this be expanded to a real world situation?
+   Where would I use ML on embedded devices?
+   How do I get the data? What makes good data vs bad data?
+   How do I build models to train?
+
 
 
 
