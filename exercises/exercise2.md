@@ -11,23 +11,18 @@ There's no wiring for this project.
 1. The right side of the button should be in pin D3
 1. Unfortuantely the pin labels are on the bottom of the board, so match your setup with the picture above.
 
-![Picture of assembled hardware](../images/assembled-hardware.png)
+![Picture of assembled hardware](../images/assembled-hardware.jpg)
 
 ## Hardware Test
 
 1. Plug the micro USB cable into the board and your computer
-1. Open arduino/HardwareTest/HardwareTest.ino in the Arduino IDE
+1. Open ArduinoSketches/HardwareTest/HardwareTest.ino in the Arduino IDE
 1. Choose the board _Tools -> Board -> Arduino Nano 33 BLE_
 1. Choose the port _Tools -> Port -> COM5 (Arduino Nano 33 BLE)_ Note that the actual port may be different on your computer
 1. Upload the code to the board _Sketch -> Upload_
-1. The LED should be a solid color
-1. Open the serial monitor _Tools -> Serial Monitor_
-1. **TODO FIX NEXT 2 STEPS**
-1. The LED should start blinking and you should see temperature, humidity, CdS, button, & servo data in the serial console
-1. To stop the program press the RST button on the board.
-    * To restart the test, close the _Serial Monitor_ dialog and open it again.
-
-![Arduino serial monitor with hardware test results](../images/hardware-test.png)
+1. Press the button and the on-board LED will light up
+1. Release the button and the on-board LED will shut off
+1. Open the serial monitor _Tools -> Serial Monitor_ if to see debug messages
 
 ## LSM9DS1 Examples (Optional)
 
