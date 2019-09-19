@@ -22,9 +22,6 @@ USBKeyboard keyboard;
 int previousButtonState = HIGH;
 
 void setup() {
-  Serial.begin(9600);
-  while (!Serial);
-
   pinMode(buttonPin, INPUT_PULLUP);
 }
 
