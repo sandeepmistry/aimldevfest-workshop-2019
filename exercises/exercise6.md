@@ -7,7 +7,9 @@
 1. Press the button, and perform a gesture
 1. The confidence of each gesture will be printed to the Serial Monitor (0 -> low confidence, 1 -> high confidence)
 
-NOTE: model.h is generated in colab, you need to download it
-If they open 
+NOTE: model.h is generated in colab, they need to download it
+
+++ TODO Screeshot of output with matches ++
+
 
 Next [Exercise 7: Gesture Controlled Bluetooth Low Energy Emoji Keyboard](exercise7.md)

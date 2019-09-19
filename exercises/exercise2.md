@@ -1,7 +1,5 @@
 # Exercise 2: Assemble the Hardware
 
-There's no wiring for this project. 
-
 1. Remove the Arduino Nano 33 Sense board from the box
 1. Hold the Arduino with the USB connector toward the right
 1. Plug the Arduino into the top of the mini solderless breadboard
@@ -22,7 +20,7 @@ There's no wiring for this project.
 1. Upload the code to the board _Sketch -> Upload_
 1. Press the button and the on-board LED will light up
 1. Release the button and the on-board LED will shut off
-1. Open the serial monitor _Tools -> Serial Monitor_ if to see debug messages
+1. Open the serial monitor _Tools -> Serial Monitor_ to see debug messages
 
 ## LSM9DS1 Examples (Optional)
 
