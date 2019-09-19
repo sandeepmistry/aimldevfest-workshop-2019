@@ -109,7 +109,8 @@ Training the model
         What does it Include
         How does it work? High level, conceptually
 
-    But the Arduino can't handle the TF model. We convert this to TF lite (light?)
+    But the Arduino can't handle the TF model. We convert this to TensorFlow Lite
+         https://www.tensorflow.org/lite/performance/post_training_quantization
 
     Even though it's TF lite, we can't easily add it to Arduino
         Convert into an array so we can include in the Arduino header file
