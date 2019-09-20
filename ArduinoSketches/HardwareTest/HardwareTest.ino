@@ -12,8 +12,8 @@ int buttonState = 0;
 int previousButtonState = 1;
 
 void setup() {
-
   Serial.begin(9600);
+  while (!Serial);
   Serial.print("Arduino ML Workshop Hardware Test");
 
   if (!IMU.begin()) {
@@ -23,16 +23,16 @@ void setup() {
 
   // initialize the LED pin as an output:
   pinMode(ledPin, OUTPUT);
-  // initialize the pushbutton pin as an input:
+  // initialize the push button pin as an input with (internal) pullup:
   pinMode(buttonPin, INPUT_PULLUP);
 }
 
 void loop() {
-  // read the state of the pushbutton value:
+  // read the state of the push button pin:
   buttonState = digitalRead(buttonPin);
 
   // HIGH and LOW are opposite because of we are using an internal pullup resistor.
-  // LOW is on. HIGH is off.
+  // LOW is pressed. HIGH is released.
   
   if (buttonState == LOW) {
     // Button is pressed, turn the LED on

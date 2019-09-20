@@ -1,8 +1,6 @@
-# Exercise 7: Gesture Controlled Bluetooth Low Energy Emoji Keyboard
+# Exercise 7: Gesture Controlled USB Emoji Keyboard
 
 TODO: Implement this
-
-TODO: Pairing info
 
 TODO: Embed image or movie of the keyboard in action 
 

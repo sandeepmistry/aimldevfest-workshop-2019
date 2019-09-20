@@ -7,21 +7,21 @@ Install the Arduino IDE from https://arduino.cc/downloads
 
 ![Arduino IDE Download](../images/ArduinoIDE.png)
         
-### Arduino SAMD Board Definitions
-Use the Arduino Boards Manager to install the Arduino SAMD Board definitions. Open the Boards Manager using the menu _Tools -> Boards -> Boards Manager_
+### Arduino nRF528x Boards Definitions
+Use the Arduino Boards Manager to install the Arduino SAMD Board definitions. Open the Boards Manager using the menu _Tools -> Board: -> Boards Manager..._
 
 ![Arduino Boards Manager](../images/BoardManager-Menu.png)
 
-Search for "Nano 33 BLE" and install the Arduino nRF528x Boards (MBed OS) definitions.
+Search for "Nano 33 BLE" and install the Arduino nRF528x Boards (Mbed OS) definitions.
 
 ![Arduino nRF528x Board Definitions](../images/BoardsManager.png)
         
 ### Arduino Libraries        
-Install the following Arduino Libraries using the Library manager. 
+Install the following Arduino libraries using the Library manager:
 
 * Arduino LSM9DS1 library (search for "Arduino_LSM9DS1")
 
-Open the library manager using the menu _Tools ->  Manage Libraries_
+Open the library manager using the menu _Tools ->  Manage Libraries..._
 
 ![Arduino Library Manager Menu](../images/ManageLibraries.png)
 
@@ -37,6 +37,7 @@ The TensorFlow Lite library isn't available in the Arduino Library Manager yet.
 ![Importing Tensor Flow Lite Library from ZIP file](../images/ImportZipLibrary.png)
 
 ++ TODO link to setup instructions for Linix users and permissions ++
+++ TODO alternative path using Create??? ++
 
 
 Next [Exercise 2: Assemble the Hardware](exercise2.md)

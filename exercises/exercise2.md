@@ -1,6 +1,6 @@
 # Exercise 2: Assemble the Hardware
 
-1. Remove the Arduino Nano 33 Sense board from the box
+1. Remove the Arduino Nano 33 BLE Sense board from the box
 1. Hold the Arduino with the USB connector toward the right
 1. Plug the Arduino into the top of the mini solderless breadboard
 1. You should see 4 rows of holes below the board

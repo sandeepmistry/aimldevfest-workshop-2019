@@ -2,15 +2,15 @@
 
 1. Press the reset button on the board
 1. Open the Serial Monitor: Tools -> Serial Monitor
-1. Push the button, make a punch gesture
+1. Push the button, make a punch gesture with the board in your hand
 1. Repeat 10x
-1. Copy and paste the data from the serial output to punch.csv
+1. Copy and paste the data from the serial output to new text file called `punch.csv` using your favorite text editor
 1. Close the Serial Monitor
 1. Press the reset button on the board
 1. Open the Serial Monitor: Tools -> Serial Monitor
 1. Push the button, flex
 1. Repeat 10x
-1. Copy and paste the serial output to flex.csv
+1. Copy and paste the serial output to new text file `flex.csv` using your favorite text editor
 
 ++TODO screenshots of output data or link to sample data++
 

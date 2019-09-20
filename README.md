@@ -22,7 +22,7 @@ Hardware Kits Provided by Arduino
 * [Exercise 4: Gather the Training Data](exercises/exercise4.md)
 * [Exercise 5: Machine Learning](exercises/exercise5.md)
 * [Exercise 6: Classifying IMU Data](exercises/exercise6.md)
-* [Exercise 7: Gesture Controlled Bluetooth Low Energy Emoji Keyboard](exercises/exercise7.md)
+* [Exercise 7: Gesture Controlled USB Emoji Keyboard](exercises/exercise7.md)
 * [Exercise 8: Additional Gestures](exercises/exercise8.md)
 
 
