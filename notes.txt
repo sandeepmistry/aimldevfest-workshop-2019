@@ -7,14 +7,14 @@ Welcome
 Make sure people are in the right workshop
 
 Get the machines setup ASAP
-   Arduino IDE + Nano 33 definitions + IMU library
+   Arduino IDE + Nano 33 BLE board definitions + IMU library
    Link to instructions for Linux users. If you're a linux user, you better be able to follow instructions. I'm not your linux admin.
    What about people with a locked down Windows 7 machine?
    What about people with Windwows 10 and no admin?
 
 People can use the Arduino Cloud IDE if they want.
 
-Need to start downloading and installing ASAP beacuse the Nano 33 definitions can take a long time (and not just the slow network part.)
+Need to start downloading and installing ASAP beacuse the Nano 33 BLE board definitions can take a long time (and not just the slow network part.)
 
 ----
 
@@ -42,7 +42,7 @@ Hardware
     Provided by Arduino! Thank you.
 
     Overview of the Hardware
-        ARM Cortex ???
+        ARM Cortex-M4F
         IMU
         Good for ML because ... (insert cool reasons here)
                 
