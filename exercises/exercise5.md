@@ -1,6 +1,6 @@
 # Exercise 5: Machine Learning
 
-We're going to use [Google Colab](https://colab.research.google.com) to train our machine learning model. Colab provides a Jupyter notebook that allows use to run our machine learning model in your web browser.
+We're going to use [Google Colab](https://colab.research.google.com) to train our machine learning model. Colab provides a Jupyter notebook that allows us to run our machine learning model in a web browser.
 
 ![Screenshot of Google Colab website](../images/colab.png)
 
