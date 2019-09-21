@@ -36,8 +36,8 @@ The TensorFlow Lite library isn't available in the Arduino Library Manager yet.
 
 ![Importing Tensor Flow Lite Library from ZIP file](../images/ImportZipLibrary.png)
 
-++ TODO link to setup instructions for Linix users and permissions ++
-++ TODO alternative path using Create??? ++
+__Linux users__ might get an error because the machine can't open the serial port. See the [Getting Started Guide for Linux](https://www.arduino.cc/en/guide/linux) on the Arudino website for more information on how to resolve the issue.
 
+++ TODO Add instructions for people that want to use Arduino Create ++
 
 Next [Exercise 2: Assemble the Hardware](exercise2.md)
