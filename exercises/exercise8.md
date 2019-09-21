@@ -11,7 +11,7 @@ Now that you have this working...
   - Can you get better results?
   - Can you reduce the size and still get "good" results
 
-- Try quantizaton to reducce the model size and/or avoid floating point math: https://www.tensorflow.org/lite/performance/post_training_quantization
+- Try quantizaton to reduce the model size and/or avoid floating point math: https://www.tensorflow.org/lite/performance/post_training_quantization
 
 - Grab a [board](https://store.arduino.cc/usa/nano-33-ble-sense) and the [TinyML book](http://shop.oreilly.com/product/0636920254508.do) to continue at home.
 
