@@ -34,9 +34,11 @@ The TensorFlow Lite library isn't available in the Arduino Library Manager yet.
 1. Download the zip file [tensorflow_lite.zip](https://storage.googleapis.com/tensorflow-nightly/github/tensorflow/tensorflow/lite/experimental/micro/tools/make/gen/arduino_x86_64/prj/tensorflow_lite.zip)
 2. Import downloaded library into the IDE using _Sketch -> Include Library -> Add .ZIP library ..._
 
-![Importing Tensor Flow Lite Library from ZIP file](../images/ImportZipLibrary.png)
+![Importing Tensor Flow Lite Library from ZIP file](../images/AddZipLibrary.png)
 
-__Linux users__ might get an error because the machine can't open the serial port. See the [Getting Started Guide for Linux](https://www.arduino.cc/en/guide/linux) on the Arudino website for more information on how to resolve the issue.
+![Selecting Tensor Flow Lite ZIP file](../images/AddZipLibrary_2.png)
+
+__Linux users__ may need to configure permissions so their user can access the serial port. See the [Getting Started Guide for Linux](https://www.arduino.cc/en/guide/linux) on the Arudino website for more information.
 
 ++ TODO Add instructions for people that want to use Arduino Create ++
 
