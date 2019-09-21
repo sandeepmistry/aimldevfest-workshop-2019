@@ -1,9 +1,17 @@
 # Exercise 5: Machine Learning
 
-We're going to use Google Colab to train our machine learning model.
+We're going to use [Google Colab](https://colab.research.google.com) to train our machine learning model. Colab provides a Jupyter notebook that allows use to run our machine learning model in your web browser.
 
-https://colab.research.google.com
+![Screenshot of Google Colab website](../images/colab.png)
 
-TODO more instructions here
+Some of you might see an error about 3rd party cookies. 
+
+![Screenshot of Google Colab error about 3rd party cookies](../images/colab-error.png)
+
+You can enable 3rd party cookies, or better yet, add an execption for `[*.]googleusercontent.com`.
+
+![Screenshot adding 3rd party cookie exception for googleusercontent.com](../images/colab-3rd-party-cookie-exception.png)
+
+**TODO more instructions here about how to load our workbook from Github**
 
 Next [Exercise 6: Classifying IMU Data](exercise6.md)
