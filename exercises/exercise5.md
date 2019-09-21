@@ -8,7 +8,7 @@ Some of you might see an error about 3rd party cookies.
 
 ![Screenshot of Google Colab error about 3rd party cookies](../images/colab-error.png)
 
-You can enable 3rd party cookies, or better yet, add an execption for `[*.]googleusercontent.com`.
+You can enable 3rd party cookies, or better yet, add an exception for `[*.]googleusercontent.com`.
 
 ![Screenshot adding 3rd party cookie exception for googleusercontent.com](../images/colab-3rd-party-cookie-exception.png)
 
