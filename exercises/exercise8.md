@@ -1,14 +1,11 @@
 # Excercise 8: Next Steps
 
-++TODO REWORD THIS++
-
 Now that you have this working... 
 
-
-- Load the code to record gestures. Create more CSV files with gestures. Retrain the model. Load the new model back onto the Arduino.
+- Load the code to record gestures. Create additional CSV files with more gestures. Retrain the model in colab. Load the new model back onto the Arduino.
   - Note: you'll need to edit the code to add the names of the new geture files
 
-- Try increasing and decreasing the amount of recordings per gesture, how does this impact performance?
+- Try increasing and decreasing the number of recordings per gesture, how does this impact performance?
 
 - Tweak the model structure and parameters
   - Can you get better results?
@@ -16,5 +13,5 @@ Now that you have this working...
 
 - Try quantizaton to reducce the model size and/or avoid floating point math: https://www.tensorflow.org/lite/performance/post_training_quantization
 
-- Grab a board and the TinyML book to continue at home
+- Grab a [board](https://store.arduino.cc/usa/nano-33-ble-sense) and the [TinyML book](http://shop.oreilly.com/product/0636920254508.do) to continue at home.
 
