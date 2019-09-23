@@ -7,6 +7,8 @@ Now that you have this working...
 
 - Try increasing and decreasing the number of recordings per gesture, how does this impact performance?
 
+- Try to only use the accelerometer or gyroscope data (not both), how does this impact performance?
+
 - Tweak the model structure and parameters
   - Can you get better results?
   - Can you reduce the size and still get "good" results
