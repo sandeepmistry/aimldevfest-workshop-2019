@@ -3,10 +3,9 @@
 
 // Select an OS:
 //#define MACOS // You'll need to enable and select the unicode keyboard: System Preferences -> Input Sources -> + -> Others -> Unicode Hex Input
-//#define WINDOWS
 //#define LINUX
 
-#if !defined(MACOS) && !defined(WINDOWS) && !defined(LINUX)
+#if !defined(MACOS) && !defined(LINUX)
 #error "Please select an OS!"
 #endif
 
@@ -50,14 +49,6 @@ void sentUtf8(unsigned long c) {
 
   for (int i = 0; i < s.length(); i++) {
     keyboard.key_code(s[i], KEY_ALT);
-  }
-#elif defined(WINDOWS)
-  s = String(c, HEX);
-
-  keyboard.key_code('x', KEY_ALT);
-
-  for (int i = 0; i < s.length(); i++) {
-    keyboard.key_code(s[i]);
   }
 #elif defined(LINUX)
   s = String(c, HEX);
