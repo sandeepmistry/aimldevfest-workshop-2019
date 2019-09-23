@@ -22,7 +22,6 @@ const tflite::Model* g_model = nullptr;
 tflite::MicroInterpreter* g_interpreter = nullptr;
 TfLiteTensor* g_input = nullptr;
 TfLiteTensor* g_output = nullptr;
-int g_inference_count = 0;
 
 // Create an area of memory to use for input, output, and intermediate arrays.
 // Finding the minimum value for your model may require some trial and error.
@@ -89,10 +88,6 @@ void setup() {
   // Obtain pointers to the model's input and output tensors
   g_input = g_interpreter->input(0);
   g_output = g_interpreter->output(0);
-
-
-  // Keep track of how many inferences we have performed
-  g_inference_count = 0;
 }
 
 // The name of this function is important for Arduino compatibility.
@@ -119,12 +114,13 @@ void loop() {
       IMU.readAcceleration(aX, aY, aZ);
       IMU.readGyroscope(gX, gY, gZ);
 
-      g_input->data.f[samplesRead * 6 + 0] = aX;
-      g_input->data.f[samplesRead * 6 + 1] = aY;
-      g_input->data.f[samplesRead * 6 + 2] = aZ;
-      g_input->data.f[samplesRead * 6 + 3] = gX;
-      g_input->data.f[samplesRead * 6 + 4] = gY;
-      g_input->data.f[samplesRead * 6 + 5] = gZ;
+      // normalize the IMU data between 0 to 1
+      g_input->data.f[samplesRead * 6 + 0] = (aX + 4.0) / 8.0;
+      g_input->data.f[samplesRead * 6 + 1] = (aY + 4.0) / 8.0;
+      g_input->data.f[samplesRead * 6 + 2] = (aZ + 4.0) / 8.0;
+      g_input->data.f[samplesRead * 6 + 3] = (gX + 2000.0) / 4000.0;
+      g_input->data.f[samplesRead * 6 + 4] = (gY + 2000.0) / 4000.0;
+      g_input->data.f[samplesRead * 6 + 5] = (gZ + 2000.0) / 4000.0;
 
       samplesRead++;
 
