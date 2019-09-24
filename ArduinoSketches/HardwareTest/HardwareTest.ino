@@ -1,15 +1,27 @@
-//  Hardware Test
-//
-//  Pressing the button turns on the built-in LED. The sketch also
-//  loads the LSM9DS1 IMU library to enure the IDE is setup correctly.
+/*
+  Hardware Test
+
+  This example performs a basic hardware test of the board which includes
+  testing the on-board IMU, LED and external button.
+
+  When the button is pressed the on-board LED will turn on.
+
+  The circuit:
+  - Arduino Nano 33 BLE or Arduino Nano 33 BLE Sense board.
+  - Button connected to pin 3 and GND.
+
+  Created by Don Coleman, Sandeep Mistry
+
+  This example code is in the public domain.
+*/
 
 #include <Arduino_LSM9DS1.h>
 
 const int buttonPin = 3; 
 const int ledPin = LED_BUILTIN;
 
-int buttonState = 0;  
-int previousButtonState = 1;
+int buttonState = LOW;  
+int previousButtonState = HIGH;
 
 void setup() {
   Serial.begin(9600);
