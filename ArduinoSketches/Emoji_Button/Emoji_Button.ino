@@ -1,3 +1,20 @@
+/*
+  Emoji Button
+
+  This example sends an emoji character over USB HID when the button is pressed.
+
+  Note: Only macOS and Linux as supported at this time, and the use of
+        #define is generally discouraged in Arduino examples
+
+  The circuit:
+  - Arduino Nano 33 BLE or Arduino Nano 33 BLE Sense board.
+  - Button connected to pin 3 and GND.
+
+  Created by Don Coleman, Sandeep Mistry
+
+  This example code is in the public domain.
+*/
+
 #include <PluggableUSBHID.h>
 #include <USBKeyboard.h>
 
@@ -12,7 +29,6 @@
 // use table: https://apps.timwhitlock.info/emoji/tables/unicode
 const int bicep = 0x1f4aa;
 const int punch = 0x1f44a;
-
 
 const int buttonPin = 3;
 

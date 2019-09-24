@@ -1,3 +1,23 @@
+/*
+  IMU Classifier
+
+  This example uses the on-board IMU to start reading acceleration and gyroscope
+  data from on-board IMU, once enough samples are read, it then uses a
+  TensorFlow Lite (Micro) model to try to classify the movement as a known gesture.
+
+  Note: The use of C/C++ pointers and variable types is generally discouraged
+        in Arduino examples, and in the future the TensorFlowLite library might
+        change to make the sketch simpler.
+
+  The circuit:
+  - Arduino Nano 33 BLE or Arduino Nano 33 BLE Sense board.
+  - Button connected to pin 3 and GND.
+
+  Created by Don Coleman, Sandeep Mistry
+
+  This example code is in the public domain.
+*/
+
 #include <Arduino_LSM9DS1.h>
 
 #include <TensorFlowLite.h>
@@ -10,21 +30,20 @@
 #include "model.h"
 
 const int buttonPin = 3;     // the number of the pushbutton pin
-const int ledPin =  13;      // the number of the LED pin
 const int numSamples = 119;
 
 int previousButtonState = HIGH;
 int samplesRead = numSamples;
 
-// Globals, used for compatibility with Arduino-style sketches.
+// global variables used for TensorFlow Lite (Micro)
 tflite::ErrorReporter* g_error_reporter = nullptr;
 const tflite::Model* g_model = nullptr;
 tflite::MicroInterpreter* g_interpreter = nullptr;
 TfLiteTensor* g_input = nullptr;
 TfLiteTensor* g_output = nullptr;
 
-// Create an area of memory to use for input, output, and intermediate arrays.
-// Finding the minimum value for your model may require some trial and error.
+// Create a static memory buffer for TFLM, the size may need to
+// be adjusted based on the model you are usings
 constexpr int g_tensor_arena_size = 8 * 1024;
 uint8_t g_tensor_arena[g_tensor_arena_size];
 
@@ -45,11 +64,13 @@ void setup() {
   // initialize the pushbutton pin as an input with pullup:
   pinMode(buttonPin, INPUT_PULLUP);
 
+  // initialize the IMU
   if (!IMU.begin()) {
     Serial.println("Failed to initialize IMU!");
     while (1);
   }
 
+  // print out the samples rates of the IMUs
   Serial.print("Accelerometer sample rate = ");
   Serial.print(IMU.accelerationSampleRate());
   Serial.println(" Hz");
@@ -59,41 +80,42 @@ void setup() {
 
   Serial.println();
 
-  // Set up logging
+  // Set up TFLM logging via the error reporter
   static tflite::MicroErrorReporter micro_error_reporter;
   g_error_reporter = &micro_error_reporter;
 
   // Map the model into a usable data structure. This doesn't involve any
   // copying or parsing, it's a very lightweight operation.
+  // import the model from the model.h tab
   g_model = tflite::GetModel(model);
   if (g_model->version() != TFLITE_SCHEMA_VERSION) {
-    g_error_reporter->Report(
-      "Model provided is schema version %d not equal "
-      "to supported version %d.\n",
-      g_model->version(), TFLITE_SCHEMA_VERSION);
-    return;
+    Serial.println("Model schema mismatch!");
+    while (1);
   }
 
-  // This pulls in all the operation implementations we need
+  // pull in all the TFLM ops, you can remove this line and
+  // only in the TFLM ops if would like to reduce the compile
+  // size of the sketch.
   static tflite::ops::micro::AllOpsResolver resolver;
 
-  // Build an interpreter to run the model with
-  static tflite::MicroInterpreter interpreter(
-    g_model, resolver, g_tensor_arena, g_tensor_arena_size, g_error_reporter);
+  // Create an interpreter to run the model
+  static tflite::MicroInterpreter interpreter(g_model, resolver, g_tensor_arena, g_tensor_arena_size, g_error_reporter);
   g_interpreter = &interpreter;
 
-  // Allocate memory from the tensor_arena for the model's tensors
+  // Allocate memory for the model's input and output tensors
   g_interpreter->AllocateTensors();
 
-  // Obtain pointers to the model's input and output tensors
+  // Get pointers for the model's input and output tensors
   g_input = g_interpreter->input(0);
   g_output = g_interpreter->output(0);
 }
 
-// The name of this function is important for Arduino compatibility.
 void loop() {
+  // read the state of the push button pin:
   int buttonState = digitalRead(buttonPin);
 
+  // compare the button state to the previous state
+  // to see if it has changed
   if (buttonState != previousButtonState) {
     if (buttonState == LOW) {
       if (samplesRead == numSamples) {
@@ -104,17 +126,24 @@ void loop() {
       // released
     }
 
+    // store the state as the previous state, for the next loop
     previousButtonState = buttonState;
   }
 
+  // check if the all the required samples have been read since
+  // the last time the button has been pressed
   if (samplesRead < numSamples) {
+    // check if both new acceleration and gyroscope data is
+    // available
     if (IMU.accelerationAvailable() && IMU.gyroscopeAvailable()) {
       float aX, aY, aZ, gX, gY, gZ;
 
+      // read the acceleration and gyroscope data
       IMU.readAcceleration(aX, aY, aZ);
       IMU.readGyroscope(gX, gY, gZ);
 
-      // normalize the IMU data between 0 to 1
+      // normalize the IMU data between 0 to 1 and store in the model's
+      // input tensor
       g_input->data.f[samplesRead * 6 + 0] = (aX + 4.0) / 8.0;
       g_input->data.f[samplesRead * 6 + 1] = (aY + 4.0) / 8.0;
       g_input->data.f[samplesRead * 6 + 2] = (aZ + 4.0) / 8.0;
@@ -125,11 +154,10 @@ void loop() {
       samplesRead++;
 
       if (samplesRead == numSamples) {
-        // Run inference, and report any error
+        // Run inferencing
         TfLiteStatus invoke_status = g_interpreter->Invoke();
         if (invoke_status != kTfLiteOk) {
-          g_error_reporter->Report("Invoke failed on x_val: %f\n",
-                                   static_cast<double>(0.0));
+          g_error_reporter->Report("Invoke failed on x_val: %f\n", static_cast<double>(0.0));
           while (1);
           return;
         }
