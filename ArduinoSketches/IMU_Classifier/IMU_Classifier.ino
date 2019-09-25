@@ -5,9 +5,9 @@
   data from on-board IMU, once enough samples are read, it then uses a
   TensorFlow Lite (Micro) model to try to classify the movement as a known gesture.
 
-  Note: The use of C/C++ pointers and variable types is generally discouraged
-        in Arduino examples, and in the future the TensorFlowLite library might
-        change to make the sketch simpler.
+  Note: The direct use of C/C++ pointers, namespaces, and dynamic memory is generally
+        discouraged in Arduino examples, and in the future the TensorFlowLite library
+        might change to make the sketch simpler.
 
   The circuit:
   - Arduino Nano 33 BLE or Arduino Nano 33 BLE Sense board.
@@ -21,32 +21,39 @@
 #include <Arduino_LSM9DS1.h>
 
 #include <TensorFlowLite.h>
-#include "tensorflow/lite/experimental/micro/kernels/all_ops_resolver.h"
-#include "tensorflow/lite/experimental/micro/micro_error_reporter.h"
-#include "tensorflow/lite/experimental/micro/micro_interpreter.h"
-#include "tensorflow/lite/schema/schema_generated.h"
-#include "tensorflow/lite/version.h"
+#include <tensorflow/lite/experimental/micro/kernels/all_ops_resolver.h>
+#include <tensorflow/lite/experimental/micro/micro_error_reporter.h>
+#include <tensorflow/lite/experimental/micro/micro_interpreter.h>
+#include <tensorflow/lite/schema/schema_generated.h>
+#include <tensorflow/lite/version.h>
 
 #include "model.h"
 
-const int buttonPin = 3;     // the number of the pushbutton pin
+const int buttonPin = 3;     // the pin number of the pushbutton pin
 const int numSamples = 119;
 
 int previousButtonState = HIGH;
 int samplesRead = numSamples;
 
 // global variables used for TensorFlow Lite (Micro)
-tflite::ErrorReporter* g_error_reporter = nullptr;
-const tflite::Model* g_model = nullptr;
-tflite::MicroInterpreter* g_interpreter = nullptr;
-TfLiteTensor* g_input = nullptr;
-TfLiteTensor* g_output = nullptr;
+tflite::MicroErrorReporter tflErrorReporter;
+
+// pull in all the TFLM ops, you can remove this line and
+// only pull in the TFLM ops you need, if would like to reduce
+// the compiled size of the sketch.
+tflite::ops::micro::AllOpsResolver tflOpsResolver;
+
+const tflite::Model* tflModel = nullptr;
+tflite::MicroInterpreter* tflInterpreter = nullptr;
+TfLiteTensor* tflInputTensor = nullptr;
+TfLiteTensor* tflOutputTensor = nullptr;
 
 // Create a static memory buffer for TFLM, the size may need to
-// be adjusted based on the model you are usings
-constexpr int g_tensor_arena_size = 8 * 1024;
-uint8_t g_tensor_arena[g_tensor_arena_size];
+// be adjusted based on the model you are using
+constexpr int tensorArenaSize = 8 * 1024;
+byte tensorArena[tensorArenaSize];
 
+// array to map gesture index to a name
 const char* GESTURES[] = {
   "punch",
   "flex"
@@ -54,7 +61,6 @@ const char* GESTURES[] = {
 
 #define NUM_GESTURES (sizeof(GESTURES) / sizeof(GESTURES[0]))
 
-// The name of this function is important for Arduino compatibility.
 void setup() {
   Serial.begin(9600);
   while (!Serial);
@@ -78,34 +84,22 @@ void setup() {
 
   Serial.println();
 
-  // Set up TFLM logging via the error reporter
-  static tflite::MicroErrorReporter micro_error_reporter;
-  g_error_reporter = &micro_error_reporter;
-
-  // Map the model into a usable data structure. This doesn't involve any
-  // copying or parsing, it's a very lightweight operation.
-  // import the model from the model.h tab
-  g_model = tflite::GetModel(model);
-  if (g_model->version() != TFLITE_SCHEMA_VERSION) {
+  // get the TFL representation of the model byte array
+  tflModel = tflite::GetModel(model);
+  if (tflModel->version() != TFLITE_SCHEMA_VERSION) {
     Serial.println("Model schema mismatch!");
     while (1);
   }
 
-  // pull in all the TFLM ops, you can remove this line and
-  // only in the TFLM ops if would like to reduce the compile
-  // size of the sketch.
-  static tflite::ops::micro::AllOpsResolver resolver;
-
   // Create an interpreter to run the model
-  static tflite::MicroInterpreter interpreter(g_model, resolver, g_tensor_arena, g_tensor_arena_size, g_error_reporter);
-  g_interpreter = &interpreter;
+  tflInterpreter = new tflite::MicroInterpreter(tflModel, tflOpsResolver, tensorArena, tensorArenaSize, &tflErrorReporter);
 
   // Allocate memory for the model's input and output tensors
-  g_interpreter->AllocateTensors();
+  tflInterpreter->AllocateTensors();
 
   // Get pointers for the model's input and output tensors
-  g_input = g_interpreter->input(0);
-  g_output = g_interpreter->output(0);
+  tflInputTensor = tflInterpreter->input(0);
+  tflOutputTensor = tflInterpreter->output(0);
 }
 
 void loop() {
@@ -131,8 +125,7 @@ void loop() {
   // check if the all the required samples have been read since
   // the last time the button has been pressed
   if (samplesRead < numSamples) {
-    // check if both new acceleration and gyroscope data is
-    // available
+    // check if new acceleration AND gyroscope data is available
     if (IMU.accelerationAvailable() && IMU.gyroscopeAvailable()) {
       float aX, aY, aZ, gX, gY, gZ;
 
@@ -142,31 +135,29 @@ void loop() {
 
       // normalize the IMU data between 0 to 1 and store in the model's
       // input tensor
-      g_input->data.f[samplesRead * 6 + 0] = (aX + 4.0) / 8.0;
-      g_input->data.f[samplesRead * 6 + 1] = (aY + 4.0) / 8.0;
-      g_input->data.f[samplesRead * 6 + 2] = (aZ + 4.0) / 8.0;
-      g_input->data.f[samplesRead * 6 + 3] = (gX + 2000.0) / 4000.0;
-      g_input->data.f[samplesRead * 6 + 4] = (gY + 2000.0) / 4000.0;
-      g_input->data.f[samplesRead * 6 + 5] = (gZ + 2000.0) / 4000.0;
+      tflInputTensor->data.f[samplesRead * 6 + 0] = (aX + 4.0) / 8.0;
+      tflInputTensor->data.f[samplesRead * 6 + 1] = (aY + 4.0) / 8.0;
+      tflInputTensor->data.f[samplesRead * 6 + 2] = (aZ + 4.0) / 8.0;
+      tflInputTensor->data.f[samplesRead * 6 + 3] = (gX + 2000.0) / 4000.0;
+      tflInputTensor->data.f[samplesRead * 6 + 4] = (gY + 2000.0) / 4000.0;
+      tflInputTensor->data.f[samplesRead * 6 + 5] = (gZ + 2000.0) / 4000.0;
 
       samplesRead++;
 
       if (samplesRead == numSamples) {
         // Run inferencing
-        TfLiteStatus invoke_status = g_interpreter->Invoke();
-        if (invoke_status != kTfLiteOk) {
-          g_error_reporter->Report("Invoke failed on x_val: %f\n", static_cast<double>(0.0));
+        TfLiteStatus invokeStatus = tflInterpreter->Invoke();
+        if (invokeStatus != kTfLiteOk) {
+          Serial.println("Invoke failed!");
           while (1);
           return;
         }
 
-        // Read the predicted y value from the model's output tensor
-        float y_val = g_output->data.f[0];
-
+        // Loop through the output tensor values from the model
         for (int i = 0; i < NUM_GESTURES; i++) {
           Serial.print(GESTURES[i]);
           Serial.print(": ");
-          Serial.println(g_output->data.f[i], 6);
+          Serial.println(tflOutputTensor->data.f[i], 6);
         }
         Serial.println();
       }
