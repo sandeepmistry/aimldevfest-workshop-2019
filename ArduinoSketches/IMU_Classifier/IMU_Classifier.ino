@@ -59,8 +59,6 @@ void setup() {
   Serial.begin(9600);
   while (!Serial);
 
-  // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
   // initialize the pushbutton pin as an input with pullup:
   pinMode(buttonPin, INPUT_PULLUP);
 
