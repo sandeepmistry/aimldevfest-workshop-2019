@@ -1,5 +1,5 @@
-# Hands on IoT with Arduino
-[AI/ML DevFest](https://www.iotdevfest.com) Workshop - September 28, 2019
+# TinyML on Arduino
+[AI/ML DevFest](https://www.aimldevfest.com/workshops/) Workshop - September 28, 2019
 
 <a href="https://aimldevfest.com"><img src="images/AI-ML-devfest-AZ-2019-horz.png" alt="AI/ML DevFest Logo" width=50%></a>
 
@@ -7,7 +7,7 @@ Presented by
  * Sandeep Mistry - Arduino
  * Don Coleman - Chariot Solutions
 
-Hardware Kits Provided by Arduino
+Hardware Kits provided by [Arduino](https://arduino.cc)
 
 <a href="https://arduino.cc"><img src="images/Arduino_logo_R_highquality.png" alt="Arduino Logo" width=30%><a/>
 <a href="https://chariotsolutions.com"><img src="images/ChariotSolutions.png" alt="Chariot Solutions Logo" width=30%></a>
