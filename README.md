@@ -1,5 +1,5 @@
 # TinyML on Arduino
-[AI/ML DevFest](https://www.aimldevfest.com/workshops/) Workshop - September 28, 2019
+[AI/ML DevFest Workshop](https://www.aimldevfest.com/workshops/) - September 28, 2019
 
 <a href="https://aimldevfest.com"><img src="images/AI-ML-devfest-AZ-2019-horz.png" alt="AI/ML DevFest Logo" width=50%></a>
 
