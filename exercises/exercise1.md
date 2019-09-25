@@ -40,6 +40,4 @@ The TensorFlow Lite library isn't available in the Arduino Library Manager yet.
 
 __Linux users__ may need to configure permissions so their user can access the serial port. See the [Getting Started Guide for Linux](https://www.arduino.cc/en/guide/linux) on the Arudino website for more information.
 
-++ TODO Add instructions for people that want to use Arduino Create ++
-
 Next [Exercise 2: Assemble the Hardware](exercise2.md)
