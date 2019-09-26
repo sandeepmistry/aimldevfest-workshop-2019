@@ -6,8 +6,7 @@
 1. You should see 4 rows of holes above the Arduino board
 1. Take the button and gently insert it into the breadboard
 1. The right side of the button should be in the ground pin, which is denoted by a white mark
-1. The left side of the button should be in pin D3
-1. Unfortuantely the pin labels are on the bottom of the board, so match your setup with the picture below.
+1. The left side of the button should be in pin D3. (The pin labels are on the bottom of the board, so match your setup with the picture below.)
 
 ![Picture of assembled hardware](../images/assembled-hardware.jpg)
 
