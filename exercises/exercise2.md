@@ -12,7 +12,7 @@
 
 ## Get the Code
 
-Clone or download this [git repository](https://github.com/sandeepmistry/aimldevfest-workshop-2019/). If you're familiar with [git](https://git-scm.com), clone this repository, otherwise, click the green button to downlod a zip file with all the code.
+Clone or download this [git repository](https://github.com/sandeepmistry/aimldevfest-workshop-2019/). If you're familiar with [git](https://git-scm.com), clone this repository, otherwise, click the [green button]((https://github.com/sandeepmistry/aimldevfest-workshop-2019/) to download a zip file with all the code.
 
 ![screenshot of the git repository](../images/download-repo.png)
 
