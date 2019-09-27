@@ -10,6 +10,12 @@
 
 ![Picture of assembled hardware](../images/assembled-hardware.jpg)
 
+## Get the Code
+
+Clone or download this [git repository](https://github.com/sandeepmistry/aimldevfest-workshop-2019/). If you're familiar with [git](https://git-scm.com), clone this repository, otherwise, click the green button to downlod a zip file with all the code.
+
+![screenshot of the git repository](../images/downlod-repo.png)
+
 ## Hardware Test
 
 1. Plug the micro USB cable into the board and your computer
