@@ -25,8 +25,8 @@ int previousButtonState = HIGH;
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial);
-  Serial.print("Arduino ML Workshop Hardware Test");
+  //while (!Serial);
+  Serial.println("Arduino ML Workshop Hardware Test");
 
   if (!IMU.begin()) {
     Serial.println("Failed to initialize IMU!");
