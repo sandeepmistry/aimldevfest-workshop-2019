@@ -15,7 +15,6 @@ Hardware Kits provided by [Arduino](https://arduino.cc)
 
 ## Exercises
 
-* [Intro](exercises/intro.md)
 * [Exercise 1: Development Environment](exercises/exercise1.md)
 * [Exercise 2: Assemble the Hardware](exercises/exercise2.md)
 * [Exercise 3: Visualizing the IMU Data](exercises/exercise3.md)
