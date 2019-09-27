@@ -4,6 +4,8 @@ We're going to use [Google Colab](https://colab.research.google.com) to train ou
 
 ![Screenshot of Google Colab website](../images/colab.png)
 
+## 3rd Party Cookies
+
 Some of you might see an error about 3rd party cookies. 
 
 ![Screenshot of Google Colab error about 3rd party cookies](../images/colab-error.png)
@@ -12,6 +14,10 @@ You can enable 3rd party cookies, or better yet, add an exception for `[*.]googl
 
 ![Screenshot adding 3rd party cookie exception for googleusercontent.com](../images/colab-3rd-party-cookie-exception.png)
 
-**TODO more instructions here about how to load our workbook from Github**
+## Open the Notebook
+
+Open the notebook in Colab.
+
+https://colab.research.google.com/github/sandeepmistry/blob/master/aimldevfest-workshop-2019/blob/master/arduino_tinyml_workshop.ipynb
 
 Next [Exercise 6: Classifying IMU Data](exercise6.md)
