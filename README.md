@@ -27,4 +27,4 @@ Hardware Kits provided by [Arduino](https://arduino.cc)
 
 ## Slides
 
-Slides can be found [Google Slides](https://docs.google.com/presentation/d/17lcrtg-EKGOgUJTeQzHrkVVnYST8DKArNtIQMgGCuR0).
+Slides can be found in [Google Slides](https://docs.google.com/presentation/d/17lcrtg-EKGOgUJTeQzHrkVVnYST8DKArNtIQMgGCuR0).
